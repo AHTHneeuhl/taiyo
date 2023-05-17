@@ -3,26 +3,29 @@ import {
   LineChart,
   Line,
   XAxis,
-  YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
 } from "recharts";
+import { useDashboard } from "../../hooks";
+import { GraphWrapper } from "../commmon";
 
-type TProps = {
-  data: any;
-};
+const CountryCases: React.FC = () => {
+  const { countryCases } = useDashboard();
 
-const CountryCases: React.FC<TProps> = ({ data }) => {
   return (
-    <LineChart width={800} height={400} data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="country" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="cases" stroke="#8884d8" />
-    </LineChart>
+    <GraphWrapper>
+      <h2 className="text-center text-xl font-semibold mb-2 cursor-pointer hover:text-blue-700">
+        Country Cases
+      </h2>
+      <LineChart width={1024} height={480} data={countryCases?.countryCases}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="country" />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="cases" stroke="#8884d8" />
+      </LineChart>
+    </GraphWrapper>
   );
 };
 
