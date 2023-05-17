@@ -1,11 +1,11 @@
-import axios from "axios";
+import covidAPI from "./covidAPI";
 import { AllCasesAdapter } from "../adapters";
 
 const adapter = new AllCasesAdapter();
 
 const allCases = async () => {
   try {
-    const { data } = await axios.get("https://disease.sh/v3/covid-19/all");
+    const { data } = await covidAPI("/all");
     return adapter.getParseResponse(data);
   } catch (e) {
     console.log(e);
