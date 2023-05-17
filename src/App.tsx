@@ -1,5 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ContactPage } from "./pages";
+
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ContactPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
