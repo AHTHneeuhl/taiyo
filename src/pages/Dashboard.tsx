@@ -1,10 +1,17 @@
-import { useDashboard } from "../hooks";
+import {
+  AllCases,
+  CountryCases,
+  CountryCasesMap,
+} from "../components/Dashboard";
 
 const Dashboard = () => {
-  const { allCases, countryCases } = useDashboard();
-  console.log(allCases, countryCases);
-
-  return <div className="w-[84%] mx-auto">Dashboard</div>;
+  return (
+    <div className="w-[88%] mx-auto">
+      <AllCases />
+      <CountryCases />
+      <CountryCasesMap />
+    </div>
+  );
 };
 
 export default Dashboard;
